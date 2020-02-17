@@ -1,0 +1,6 @@
+---
+dependencies:
+  - nginx
+  - mysql
+  - tools
+  - mail-dev

@@ -1,0 +1,19 @@
+---
+- hosts: devbox
+  pre_tasks:
+    - apt:
+        update_cache: true
+      become: true
+    - apt:
+        name:
+        - apt-transport-https
+        - zip
+        - git
+      become: true
+    - lineinfile:
+        dest: '~/.bashrc'
+        line: "cd /var/www"
+        regexp: "^cd /var/www$"
+  roles:
+    - role: app
+      become: true
